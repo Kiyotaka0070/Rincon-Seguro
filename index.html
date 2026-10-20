@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Un lugar seguro para ti</title>
+<style>
+* { box-sizing:border-box; margin:0; padding:0; }
+body { min-height:100vh; font-family:"Segoe UI",Arial,sans-serif; color:#e9e0ff; background: radial-gradient(ellipse at 20% 20%, #3a1d6b 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, #0a2a5e 0%, transparent 50%), #10051e; display:flex; justify-content:center; padding:24px 16px; }
+.contenedor { width:min(560px,100%); text-align:center; }
+header h1 { font:500 2.2rem Georgia, serif; }
+header h1 span { color:#ffb4e5; text-shadow:0 0 18px #ff4fbc80; }
+.sub { color:#c9b9f0; line-height:1.7; margin-top:10px; }
+.card { margin:18px 0; padding:22px 18px; border:1px solid #a66bff40; border-radius:22px; background:linear-gradient(145deg, #21103bee, #122044eb); }
+.card h2 { font:500 1.35rem Georgia, serif; margin-bottom:8px; }
+.card p { color:#d8cffb; line-height:1.7; font-size:.95rem; }
+.botones { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:14px; }
+button { border:1px solid #ffffff30; border-radius:30px; padding:11px 18px; background:linear-gradient(100deg,#6a3bff,#45a0ff); color:#fff; cursor:pointer; }
+button.secundario { background:linear-gradient(135deg,#2a1545,#1a2a5a); border-color:#a66bff60; }
+#circuloRespira { width:120px; height:120px; margin:18px auto; border-radius:50%; background:radial-gradient(circle at 30% 30%,#ffb4e5,#a66bff); box-shadow:0 0 30px #ff4fbc60; transition: transform 4s ease-in-out; }
+#textoRespira { font-size:1.1rem; color:#ffe779; margin-top:8px; min-height:26px; }
+textarea { width:100%; min-height:110px; margin-top:12px; padding:12px; border-radius:16px; border:1px solid #a66bff50; background:#0f1230; color:#fff; resize:none; outline:none; }
+.nota { font-size:.8rem; color:#9fb8ff; margin-top:10px; }
+.lista-check { text-align:left; max-width:360px; margin:14px auto; line-height:2; }
+footer { margin:30px 0 10px; color:#8fa0d0; font-size:.8rem; }
+</style>
+</head>
+<body>
+<div class="contenedor">
+  <header>
+    <h1>Respira, estás <span>a salvo</span> aquí</h1>
+    <p class="sub">Este lugar es solo para ti, para descansar un ratito sin tener que explicar nada.</p>
+  </header>
+
+  <div class="card">
+    <h2>1. Respira conmigo 1 minuto</h2>
+    <div id="circuloRespira"></div>
+    <div id="textoRespira">Respirando contigo...</div>
+    <div class="botones">
+      <button id="btnRespirar">Empezar de nuevo</button>
+      <button id="btnDetener" class="secundario">Detener</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>2. Suelta lo que tengas ahí dentro</h2>
+    <p>No tienes que ordenarlo bonito. Solo escribe como salga, como si fuera para ti.</p>
+    <textarea id="areaEscribir" placeholder="Lo que sea que tengas hoy, aquí está bien dejarlo..."></textarea>
+    <div class="botones">
+      <button id="btnBorrar" class="secundario">Borrar y soltarlo</button>
+    </div>
+    <p class="nota">Esto no se guarda. Se borra de verdad.</p>
+  </div>
+
+  <div class="card">
+    <h2>3. Un abracito para ti 🤍</h2>
+    <p id="fraseAbrazo" style="margin-top:12px; color:#ffe779; font-size:1.05rem;">"Gracias por seguir, aun cuando estás cansadita."</p>
+    <div class="botones">
+      <button id="btnAbrazo" class="secundario">Otro abracito</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>4. Pequeños descansos que también cuentan</h2>
+    <div class="lista-check">
+      - Tomar agüita despacio, sin apuro<br>
+      - Estirar tus hombros y el cuello<br>
+      - Mirar el cielo un ratito<br>
+      - Respiraciones lentas, suelta el aire despacio<br>
+      - Cerrar los ojitos un minuto<br>
+      - Poner una cancion que te gusta y escucharla<br>
+      - Molestarme un ratito si te dan ganas de hablar
+      
+      
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>5. Un rincón bonito para sonreír ✨</h2>
+    <div class="lista-check" id="cosasBonitas">
+      - Tu forma de reírte <br>
+      - Lo mucho que te importan los que quieres<br>
+      - Esa tranquilidad que das<br>
+      - Tu terrenito que poco a poco se va haciendo realidad<br>
+      - Cuando al fin tengas tu skin de Kagura y digas "valio la pena"<br>
+      - Tus hermanitas y tu mami a los que aprecias un monton<br>
+      - Ese ratito que te das para ti aunque tengas mil cosas que hacer<br>
+      - Tu antojo de dulce y salado, y el te de muña<br>
+      - Tu chatarra que anda fallando pero sigue aguantando<br>
+      - Cuando dices que las coincidencias no existen y que todo es buena señal<br>
+      - Mencione lo de molestarme un ratito?
+
+    </div>
+    <div class="botones">
+      <button id="btnBonito" class="secundario">Muéstrame otra cosa bonita</button>
+    </div>
+  </div>
+
+  <footer>Hecho para que descanses un ratito. Sin prisa.</footer>
+
+  <audio id="musicaFondo" loop autoplay>
+    <source src="https://cdn.pixabay.com/download/audio/2022/10/30/audio_8d4cfd6b7a.mp3?filename=lonely-piano-125761.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+const circulo = document.getElementById('circuloRespira');
+const texto = document.getElementById('textoRespira');
+let intervalo=null, fase=0;
+function cicloRespira(){
+  const fases=[{t:"Inhala... 4s",scale:"1.45"},{t:"Sostén... 2s",scale:"1.45"},{t:"Exhala... 6s",scale:"0.75"},{t:"Descansa... 2s",scale:"0.75"}];
+  const a=fases[fase%fases.length]; texto.textContent=a.t; circulo.style.transform=`scale(${a.scale})`; fase++;
+}
+function iniciarRespira(){ if(intervalo) clearInterval(intervalo); fase=0; cicloRespira(); intervalo=setInterval(cicloRespira,3500); }
+document.getElementById('btnRespirar').onclick=iniciarRespira;
+document.getElementById('btnDetener').onclick=()=>{ clearInterval(intervalo); intervalo=null; texto.textContent="Bien hecho. Descansa."; circulo.style.transform="scale(1)"; };
+document.getElementById('btnBorrar').onclick=()=>{ document.getElementById('areaEscribir').value=""; };
+const abrazos=["Gracias por seguir, aun cuando estás cansadita.","No tienes que poder con todo hoy.","Tu tranquilidad vale mucho.","Descansar también es avanzar.","Estás haciendo lo mejor que puedes y eso ya es bastante.","Aquí puedes ser tú, sin tener que sonreír.","No tienes que ser fuerte todo el tiempo.","Si hoy estas con sueño esta bien."];
+let ia=0; document.getElementById('btnAbrazo').onclick=()=>{ ia=(ia+1)%abrazos.length; document.getElementById('fraseAbrazo').textContent=`"${abrazos[ia]}"`; };
+const bonitas=[,"El gran corazon que tienes y esa empatia hacia los demas","Tu forma de seguir aunque estés cansadita","Que siempre encuentras una forma de cuidar","Esa calma bonita que transmites"];
+let ib=0; document.getElementById('btnBonito').onclick=()=>{ ib=(ib+1)%bonitas.length; document.getElementById('cosasBonitas').innerHTML=`- ${bonitas[ib]}<br>- ${bonitas[(ib+1)%bonitas.length]}<br>- ${bonitas[(ib+2)%bonitas.length]}`; };
+
+// Música automática sin controles
+const musica=document.getElementById('musicaFondo');
+musica.volume=0.25;
+function intentarAutoplay(){ musica.play().catch(()=>{}); iniciarRespira(); }
+window.addEventListener('load', intentarAutoplay);
+document.body.addEventListener('click',()=>{ if(musica.paused) musica.play().catch(()=>{}); },{once:true});
+</script>
+</body>
+</html>
